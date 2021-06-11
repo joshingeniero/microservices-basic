@@ -1,0 +1,18 @@
+apiVersion: skaffold/v2beta10
+kind: Config
+metadata:
+  name: microservices-basic
+build:
+  artifacts:
+  - image: hakjosh/backend
+    context: backend
+    docker:
+      dockerfile: Dockerfile
+  - image: hakjosh/second
+    context: second
+    docker:
+      dockerfile: Dockerfile
+deploy:
+  kubectl:
+    manifests:
+    - deployment.yaml
