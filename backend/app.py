@@ -1,6 +1,8 @@
+import os
 from flask import Flask, jsonify
 
 app = Flask(__name__)
+os.mkdir('TEST')
 
 
 @app.route('/')
