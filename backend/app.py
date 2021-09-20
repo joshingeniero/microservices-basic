@@ -2,7 +2,6 @@ import os
 from flask import Flask, jsonify
 
 app = Flask(__name__)
-os.mkdir('TEST')
 
 
 @app.route('/')
@@ -12,7 +11,7 @@ def hello_world():
 
 @app.route('/info')
 def info():
-    return jsonify({'info': 'chaos'})
+    return jsonify({'info': 'Kubernetes is great!'})
 
 
 @app.route('/maker')

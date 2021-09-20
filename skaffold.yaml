@@ -3,6 +3,10 @@ kind: Config
 metadata:
   name: microservices-basic
 build:
+  local:
+    {
+      push: false
+    }
   artifacts:
   - image: hakjosh/backend
     context: backend
