@@ -39,8 +39,8 @@ Download and install Skaffold for your platform [here](https://skaffold.dev/docs
 
 #### Server Customisation:
 You may change the data and routes that the backend and frontend servers communicate with
-in the app.py files in either the [frontend](second) or [backend](backend) folders
-##### Frontend [app.py](second/app.py)
+in the app.py files in either the [frontend](frontend) or [backend](backend) folders
+##### Frontend [app.py](frontend/app.py)
 ```python
 @app.route('/')
 def intro():

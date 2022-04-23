@@ -10,7 +10,6 @@
 #    IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
 #    or implied.
 
-
 FROM python:3.11.0a7-slim-bullseye
 
 RUN mkdir /app

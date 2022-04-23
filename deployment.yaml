@@ -40,10 +40,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: second-service
+  name: frontend-service
 spec:
   selector:
-    app: second
+    app: frontend
   ports:
     - protocol: "TCP"
       port: 6001
@@ -55,20 +55,20 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: second
+  name: frontend
 spec:
   selector:
     matchLabels:
-      app: second
+      app: frontend
   replicas: 4
   template:
     metadata:
       labels:
-        app: second
+        app: frontend
     spec:
       containers:
-        - name: second
-          image: hakjosh/second:latest
+        - name: frontend
+          image: hakjosh/frontend:latest
 #          imagePullPolicy: Always
           ports:
             - containerPort: 5001
@@ -90,7 +90,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: second-service
+                name: frontend-service
                 port:
                   number: 6001
     - host: prod.home.joshingeniero.usw1.k8g8.com
@@ -100,7 +100,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: second-service
+                name: frontend-service
                 port:
                   number: 6001
 
@@ -119,7 +119,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: second-service
+                name: frontend-service
                 port:
                   number: 6001
     - host: dev.compute.joshingeniero.usw1.k8g8.com
@@ -129,6 +129,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: second-service
+                name: frontend-service
                 port:
                   number: 6001
