@@ -16,7 +16,7 @@ def intro():
 def info():
     url = "http://backend-service:6002/info"
     response = requests.get(url)
-    return response.json()["info"]
+    return render_template('index.html', data=info, title='Info')
 
 
 @app.route('/cake')
