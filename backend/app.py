@@ -1,22 +1,28 @@
-import os
+import os, json
 from flask import Flask, jsonify
 
 app = Flask(__name__)
 
 
+def load_database(key='root'):
+    with open('database.json') as json_file:
+        data = json.load(json_file)['data']
+    return data[key]
+
+
 @app.route('/')
 def hello_world():
-    return jsonify({'info': 'Hello from Kubernetes!'})
+    return jsonify({'info': load_database('root')})
 
 
 @app.route('/info')
 def info():
-    return jsonify({'info': 'Kubernetes is great!'})
+    return jsonify({'info': load_database('info')})
 
 
 @app.route('/maker')
 def maker():
-    return jsonify({'info': 'The cake is NOT a lie!'})
+    return jsonify({'info': load_database('maker')})
 
 
 if __name__ == '__main__':
