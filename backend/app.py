@@ -10,7 +10,7 @@ def load_database(key='root'):
     return data[key]
 
 
-@app.route('/')
+@app.route('/root')
 def hello_world():
     return jsonify({'info': load_database('root')})
 
@@ -20,7 +20,7 @@ def info():
     return jsonify({'info': load_database('info')})
 
 
-@app.route('/maker')
+@app.route('/cake')
 def maker():
     return jsonify({'info': load_database('maker')})
 

@@ -4,26 +4,28 @@ import requests
 app = Flask(__name__)
 
 
+def get_data(key='root'):
+    url = f"http://backend-service:6002/{key}"
+    response = requests.get(url)
+    info = response.json()['info']
+    return info
+
+
 @app.route('/')
 def intro():
-    url = "http://backend-service:6002/"
-    response = requests.get(url)
-    info = response.json()["info"]
+    info = get_data('root')
     return render_template('index.html', data=info, title='Hello!')
 
 
 @app.route('/info')
 def info():
-    url = "http://backend-service:6002/info"
-    response = requests.get(url)
+    info = get_data('info')
     return render_template('index.html', data=info, title='Info')
 
 
 @app.route('/cake')
 def cake():
-    url = "http://backend-service:6002/maker"
-    response = requests.get(url)
-    info = response.json()["info"]
+    info = get_data('cake')
     return render_template('index.html', data=info, title='Basic Microservice')
 
 

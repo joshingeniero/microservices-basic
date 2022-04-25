@@ -15,8 +15,9 @@ FROM python:3.11.0a7-slim-bullseye
 
 RUN mkdir /app
 WORKDIR /app
-ADD . /app/
+COPY requirements.txt /app
 RUN pip install -r /app/requirements.txt
+COPY . /app/
 
 EXPOSE 5000
 CMD ["python", "/app/app.py"]
