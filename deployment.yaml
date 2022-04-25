@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: hakjosh/backend:latest
+          image: hakjosh/backend:2.0
 #          imagePullPolicy: Always
           ports:
             - containerPort: 5002
@@ -68,7 +68,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: hakjosh/frontend:latest
+          image: hakjosh/frontend:2.0
 #          imagePullPolicy: Always
           ports:
             - containerPort: 5001
