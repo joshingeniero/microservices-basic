@@ -1,4 +1,4 @@
-#    Copyright (c) 2020 Cisco and/or its affiliates.
+#    Copyright (c) 2022 Cisco and/or its affiliates.
 #    This software is licensed to you under the terms of the Cisco Sample
 #    Code License, Version 1.1 (the "License"). You may obtain a copy of the
 #    License at
@@ -10,12 +10,14 @@
 #    IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
 #    or implied.
 
+
 FROM python:3.11.0a7-slim-bullseye
 
 RUN mkdir /app
 WORKDIR /app
-ADD . /app/
+COPY requirements.txt /app
 RUN pip install -r /app/requirements.txt
+COPY . /app/
 
 EXPOSE 5000
 CMD ["python", "/app/app.py"]

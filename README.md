@@ -39,46 +39,52 @@ Download and install Skaffold for your platform [here](https://skaffold.dev/docs
 
 #### Server Customisation:
 You may change the data and routes that the backend and frontend servers communicate with
-in the app.py files in either the [frontend](frontend) or [backend](backend) folders
+in the app.py files in either the [frontend](frontend) or [backend](backend) folders. 
+The JSON file [database.json](backend/database.json) contains strings that refer to the backend server's routes.
 ##### Frontend [app.py](frontend/app.py)
 ```python
 @app.route('/')
 def intro():
-    url = "http://backend-service:6002/"
-    response = requests.get(url)
-    info = response.json()["info"]
+    info = get_data('root')
     return render_template('index.html', data=info, title='Hello!')
 
 
 @app.route('/info')
 def info():
-    url = "http://backend-service:6002/info"
-    response = requests.get(url)
-    return response.json()["info"]
+    info = get_data('info')
+    return render_template('index.html', data=info, title='Info')
 
 
 @app.route('/cake')
 def cake():
-    url = "http://backend-service:6002/maker"
-    response = requests.get(url)
-    info = response.json()["info"]
+    info = get_data('cake')
     return render_template('index.html', data=info, title='Basic Microservice')
 ```
 ##### Backend [app.py](backend/app.py)
 ```python
-@app.route('/')
+@app.route('/root')
 def hello_world():
-    return jsonify({'info': 'Hello from Kubernetes!'})
+    return jsonify({'info': load_database('root')})
 
 
 @app.route('/info')
 def info():
-    return jsonify({'info': 'chaos'})
+    return jsonify({'info': load_database('info')})
 
 
-@app.route('/maker')
+@app.route('/cake')
 def maker():
-    return jsonify({'info': 'The cake is NOT a lie!'})
+    return jsonify({'info': load_database('maker')})
+```
+##### Database [database.json](backend/database.json) 
+```json
+{
+  "data": {
+    "root": "Hello from Cisco Live!",
+    "info": "Kubernetes is amazing!",
+    "maker": "The cake is NOT a lie!"
+  }
+}
 ```
 
 
