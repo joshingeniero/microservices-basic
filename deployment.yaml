@@ -28,8 +28,8 @@ spec:
     spec:
       containers:
         - name: backend
-          image: hakjosh/backend:2.1
-          imagePullPolicy: Always
+          image: hakjosh/backend
+          imagePullPolicy: Never
           ports:
             - containerPort: 5002
       imagePullSecrets:
@@ -68,8 +68,8 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: hakjosh/frontend:2.1
-          imagePullPolicy: Always
+          image: hakjosh/frontend
+          imagePullPolicy: Never
           ports:
             - containerPort: 5001
       imagePullSecrets:
