@@ -44,7 +44,7 @@ def info():
 
 @app.route('/cake')
 def maker():
-    return jsonify({'info': load_database('maker')})
+    return jsonify({'info': load_database('cake')})
 
 
 if __name__ == '__main__':

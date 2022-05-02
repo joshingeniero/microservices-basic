@@ -74,7 +74,7 @@ def info():
 
 @app.route('/cake')
 def maker():
-    return jsonify({'info': load_database('maker')})
+    return jsonify({'info': load_database('cake')})
 ```
 ##### Database [database.json](backend/database.json) 
 ```json
@@ -82,7 +82,7 @@ def maker():
   "data": {
     "root": "Hello from Cisco Live!",
     "info": "Kubernetes is amazing!",
-    "maker": "The cake is NOT a lie!"
+    "cake": "The cake is NOT a lie!"
   }
 }
 ```
