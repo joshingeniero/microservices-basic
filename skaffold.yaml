@@ -1,4 +1,4 @@
-apiVersion: skaffold/v2beta28
+apiVersion: skaffold/v4beta1
 kind: Config
 metadata:
   name: microservices-basic
@@ -12,7 +12,6 @@ build:
     context: frontend
     docker:
       dockerfile: Dockerfile
-deploy:
-  kubectl:
-    manifests:
-    - deployment.yaml
+manifests:
+  rawYaml:
+  - deployment.yaml
