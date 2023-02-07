@@ -2,7 +2,7 @@
 
 This is the source code for a basic microservice application. It runs a backend and frontend
 server on Flask. The frontend requests info from the backend using a GET and JSON. Both
-are containerised and ready to deploy with a Kubernetes deployment.yaml and Skaffolw.
+are containerised and ready to deploy with a Kubernetes deployment.yaml and Skaffold.
 
 ### High Level Design
 ![alt text](IMAGES/workflow.png)
