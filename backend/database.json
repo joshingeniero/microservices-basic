@@ -1,7 +1,7 @@
 {
   "data": {
-    "root": "Hello from Melbourne!",
-    "info": "Kubernetes is Great!",
-    "cake": "The cake is NOT a lie!"
+    "root": "Hello from DevNet!",
+    "info": "Kubernetes is Amazing!",
+    "cake": "The cake is a lie!"
   }
 }
